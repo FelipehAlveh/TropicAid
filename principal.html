@@ -15,19 +15,27 @@
     <h1>Dashboard de Investimentos</h1>
     <h3 class="quote"><em>Aonde meus recursos estão sendo alocados?</em></h3>
     <hr>
-    <div style="width: 250px; height: 250px; margin: 5px; padding: 20px; background-color: rgba(230, 255, 255, 0.1); border-radius: 25px; backdrop-filter: blur(1px); box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);">
-        <canvas id="meuGrafico"></canvas>
+    <div>
+        <div style="display:inline-flex; flex-direction: row; vertical-align: top;">
+            <canvas id="meuGrafico" style="width: 250px; height: 250px; margin: 5px; padding: 20px; background-color: rgba(230, 255, 255, 0.1); border-radius: 25px; backdrop-filter: blur(1px); box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);"></canvas>
+        </div>
+        <div style="display:inline-flex; flex-direction: row; vertical-align: top;">
+            <p style="width: 170px; height: 210px; margin-left: 5px; margin-top: 5px;padding: 20px; background-color: rgba(230, 255, 255, 0.1); border-radius: 25px; backdrop-filter: blur(1px); box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5)";></p>
+        </div>
+        <div style="display:inline-flex; flex-direction: row; vertical-align: top;">
+            <p style="width: 350px; height: 210px; margin-left: 10px; margin-top: 5px;padding: 20px; background-color: rgba(230, 255, 255, 0.1); border-radius: 25px; backdrop-filter: blur(1px); box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5)";>Caixa onde serão exibidas as despesas em lista</p>
+        </div>
     </div>
     <div style="margin: 10px;">
-        <p style="background-color: rgba(230, 155, 155, 0.1); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display:inline-block">Recursos Alocados: R$<span id="recursoalocado">blank</span></p>
-        <p style="background-color: rgba(230, 155, 155, 0.1); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display:inline-block; margin-left: 5px;">Recursos não alocados: R$<span id="recursonaoalocado">blank</span></p>
+        <p style="background-color: rgba(155, 255, 155, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display:inline-block">Recursos Alocados: R$<span id="recursoalocado">blank</span></p>
+        <p style="background-color: rgba(155, 155, 155, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display:inline-block; margin-left: 5px;">Recursos não alocados: R$<span id="recursonaoalocado">blank</span></p>
     </div>
     <div style="margin-left: 10px; margin-top: -20px;">
-        <p style="background-color: rgba(230, 155, 155, 0.1); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display: inline-block;">Recursos Totais: R$<span id="recursototal">blank</span></p>
-        <p style="background-color: rgba(230, 155, 155, 0.1); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display: inline-block; margin-left: 5px;">Recursos em Picls: R$<span id="recursopicls">blank</span></p>
+        <p style="background-color: rgba(255, 255, 255, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display: inline-block;">Recursos Totais: R$<span id="recursototal">blank</span></p>
+        <p style="background-color: rgba(255, 255, 155, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display: inline-block; margin-left: 5px;">Recursos em Picls: R$<span id="recursopicls">blank</span></p>
+        <a href="adicionar.html">Adicionar despesa</a>
     </div>
     <!--Ninguém deixa o Wesley ver isso ;-;-->
-    <a href="adicionar.html">Adicionar despesa</a>
     </main>
     <script src="script.js"></script>
 </body>
