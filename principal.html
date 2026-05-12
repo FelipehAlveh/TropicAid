@@ -19,20 +19,22 @@
         <div style="display:inline-flex; flex-direction: row; vertical-align: top;">
             <canvas id="meuGrafico" style="width: 250px; height: 250px; margin: 5px; padding: 20px; background-color: rgba(230, 255, 255, 0.1); border-radius: 25px; backdrop-filter: blur(1px); box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);"></canvas>
         </div>
-        <div style="display:inline-flex; flex-direction: row; vertical-align: top;">
-            <p style="width: 170px; height: 210px; margin-left: 5px; margin-top: 5px;padding: 20px; background-color: rgba(230, 255, 255, 0.1); border-radius: 25px; backdrop-filter: blur(1px); box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5)";></p>
+        <div  style="display:inline-flex; flex-direction: row; vertical-align: top;">
+    <div id="caixa-historico" style="width: 550px; height: 210px; margin-left: 20px; margin-top: 5px; padding: 20px; background-color: rgba(230, 255, 255, 0.1); border-radius: 25px; backdrop-filter: blur(1px); box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); color: white; overflow-y: auto;">
+        <strong style="font-family: 'Titillium Web', sans-serif; font-size: 1em; overflow-x: hidden;">Histórico de Investimentos neste ano:</strong><br>
+        <ul id="listaDespesas" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em;">
+            </ul>
         </div>
-        <div style="display:inline-flex; flex-direction: row; vertical-align: top;">
-            <p style="width: 350px; height: 210px; margin-left: 10px; margin-top: 5px;padding: 20px; background-color: rgba(230, 255, 255, 0.1); border-radius: 25px; backdrop-filter: blur(1px); box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5)";>Caixa onde serão exibidas as despesas em lista</p>
-        </div>
+</div>
     </div>
     <div style="margin: 10px;">
-        <p style="background-color: rgba(155, 255, 155, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display:inline-block">Recursos Alocados: R$<span id="recursoalocado">blank</span></p>
-        <p style="background-color: rgba(155, 155, 155, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display:inline-block; margin-left: 5px;">Recursos não alocados: R$<span id="recursonaoalocado">blank</span></p>
+        <p style="background-color: rgba(155, 255, 155, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display:inline-block">Recursos Alocados: R$<span id="recursoalocado"></span></p>
+        <p style="background-color: rgba(155, 155, 155, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display:inline-block; margin-left: 5px;">Recursos não alocados: R$<span id="recursonaoalocado"></span></p>
     </div>
     <div style="margin-left: 10px; margin-top: -20px;">
-        <p style="background-color: rgba(255, 255, 255, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display: inline-block;">Recursos Totais: R$<span id="recursototal">blank</span></p>
-        <p style="background-color: rgba(255, 255, 155, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display: inline-block; margin-left: 5px;">Recursos em Picls: R$<span id="recursopicls">blank</span></p>
+        <p style="background-color: rgba(255, 255, 255, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display: inline-block;">Recursos Totais: R$<span id="recursototal"></span></p>
+        <p style="background-color: rgba(255, 255, 155, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display: inline-block; margin-left: 5px;">Recursos em PICLs: R$<span id="recursopicls"></span></p>
+        <p style="background-color: rgba(255, 255, 155, 0.2); width: 170px; padding: 10px; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); display: inline-block; margin-left: 5px;">Meta PICLs atingida? <span id="metaPiclsAtingida"></span><span id="porcentPicls"></span></p>
         <a href="adicionar.html">Adicionar despesa</a>
     </div>
     <!--Ninguém deixa o Wesley ver isso ;-;-->

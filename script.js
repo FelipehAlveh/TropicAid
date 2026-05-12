@@ -2,9 +2,9 @@ function template() {
     localStorage.clear();
     localStorage.setItem('usuario','BRASIL00');
     localStorage.setItem('senha','23432');
-    localStorage.setItem('recursototal','35000');
-    localStorage.setItem('recursoalocado','12000')
-    localStorage.setItem('recursopicls','3000');
+    localStorage.setItem('recursototal','2000000');
+    localStorage.setItem('recursoalocado','1200000')
+    localStorage.setItem('recursopicls','300000');
 }
 
 function realizarLogin() {
@@ -39,6 +39,11 @@ let naoAlocado = total - alocado - picls;
 localStorage.setItem('recursonaoalocado',naoAlocado)
 const recursonaoalocado = localStorage.getItem('recursonaoalocado');
 
+let porcentPicls = total > 0 ? (picls / total) * 100 : 0;
+localStorage.setItem('porcentPicls', porcentPicls.toFixed(2));
+const metaPiclsAtingida = porcentPicls >= 20 ? "Sim" : "Não";
+localStorage.setItem('metaPiclsAtingida', metaPiclsAtingida);
+
     if (recursototal) {
         document.getElementById('recursototal').textContent = recursototal;
     }
@@ -51,8 +56,80 @@ const recursonaoalocado = localStorage.getItem('recursonaoalocado');
     if (recursopicls) {
         document.getElementById('recursopicls').textContent = recursopicls;
     }
-
+    if (metaPiclsAtingida) {
+        document.getElementById('metaPiclsAtingida').textContent = metaPiclsAtingida;
+    }
+    if (porcentPicls) {
+        document.getElementById('porcentPicls').textContent = ` (${porcentPicls.toFixed(2)}%)`;
+}
 gerarGrafico(alocado, naoAlocado, picls);
+carregarHistorico();
+}
+function carregarHistorico() {
+    const listaElemento = document.getElementById('listaDespesas');
+    const historico = JSON.parse(localStorage.getItem('historico')) || [];
+
+    if (listaElemento) {
+        listaElemento.innerHTML = ""; 
+
+        historico.forEach(item => {
+            const li = document.createElement('li');
+            
+            // ESTILOS CRÍTICOS: Isso trava o texto dentro do azul
+            li.style.borderBottom = "1px solid rgba(255, 255, 255, 0.1)";
+            li.style.padding = "5px 0";
+            li.style.listStyle = "none";
+            li.style.width = "100%"; 
+            li.style.display = "block"; 
+            
+            const valorReal = Number(item.valor).toLocaleString('pt-BR', { 
+                style: 'currency', 
+                currency: 'BRL' 
+            });
+            
+            
+            li.innerHTML = `
+                <div style="color: white; font-size: 0.9em;">
+                    <span style="font-weight: bold;">${item.nome}</span>: ${valorReal}
+                </div>
+                <div style="color: rgba(255,255,255,0.7); font-size: 0.8em; font-style: italic; margin-left: 5px;">
+                    ${item.desc || "Sem descrição"}
+                </div>
+            `;
+            listaElemento.appendChild(li);
+        });
+    }
+}
+
+function salvarDespesa() {
+    const nome = document.getElementById('nome').value;
+    const valor = Number(document.getElementById('money').value);
+    const descricao = document.getElementById('desc').value; 
+    const ehPICLs = document.getElementById('PICLs').checked;
+
+    if (nome && valor > 0) {
+        
+        if (ehPICLs) {
+            let piclsAtual = Number(localStorage.getItem('recursopicls')) || 0;
+            localStorage.setItem('recursopicls', piclsAtual + valor);
+        } else {
+            let alocadoAtual = Number(localStorage.getItem('recursoalocado')) || 0;
+            localStorage.setItem('recursoalocado', alocadoAtual + valor);
+        }
+
+        
+        let historico = JSON.parse(localStorage.getItem('historico')) || [];
+        historico.push({ 
+            nome: nome, 
+            valor: valor, 
+            desc: descricao 
+        });
+        localStorage.setItem('historico', JSON.stringify(historico));
+
+        window.location.href = "principal.html";
+    } else {
+        alert("Preencha o nome e um valor válido!");
+    }
 }
 
 function gerarGrafico(recursoalocado, recursonaoalocado, recursopicls) {

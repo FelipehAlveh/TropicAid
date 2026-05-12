@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="dashboard">
-        <h1>Dashboard de Investimentos</h1>
-    <h3 class="quote"><em>Aonde meus recursos estão sendo alocados?</em></h3>
-    <hr>
+    <main class="dashboard" style="display: flex; flex-direction: column; height: 500px; width: 850px; text-align: center;">
+        <h1>Adicionar nova despesa</h1>
+    <h3 class="quote" style="text-align: center;"><em>Como, onde, e por que irei alocar estes recursos?</em></h3>
+    <div style="display: flex; margin-left: 10px; align-items: flex-start; gap: 30px; text-align: left;">
+    <div class="painel">
+
     <form action="/enviar" method="post">
     <div class="div1">
     
@@ -28,8 +30,16 @@
   <textarea type="text" id="desc" name="desc" maxlength="290"></textarea></form></div><br>
    <label for="PICLs" style="color: white;">Destinado a PICLs?</label>
     <input type="checkbox" id="PICLs" name="PICLs" maxlength="20" style="height: 15px; width: 15px; color: white;" class="formulario"> <br><br>
-  <button type="submit">Confirmar Despesa</button>
+  <button type="button" onclick="salvarDespesa()">Confirmar Despesa</button>
   <a href="principal.html" class="voltar">Cancelar e Retornar</a>
+  </div>
+
+  <div>
+    <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; width: 250px; text-align: justify; font-size: large; margin-top: 40px; margin-left: 10px; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Insira as informações de seu novo investimento. O dashboard será atualizado automaticamente após a confirmação. <br><br>Para despesas destinadas a PICLs, certifique-se de marcar a caixa de seleção correspondente. Assim, seus recursos serão alocados corretamente e refletidos em suas metas.
+    </p>
+  </div>
+  </div>
     </main>
+    <script src="script.js"></script> 
 </body>
 </html>
