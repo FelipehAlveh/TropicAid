@@ -3,8 +3,9 @@ function template() {
     localStorage.setItem('usuario','BRASIL00');
     localStorage.setItem('senha','23432');
     localStorage.setItem('recursototal','2000000');
-    localStorage.setItem('recursoalocado','1200000')
+    localStorage.setItem('recursoalocado','900000');
     localStorage.setItem('recursopicls','300000');
+    localStorage.setItem('historico','[{"nome":"Investimento 1","valor":900000,"desc":"Descrição do Investimento 1"},{"nome":"Investimento 2","valor":300000,"desc":"Qualquer descrição que ajude a identificar seus investimentos!"}]')
 }
 
 function realizarLogin() {
